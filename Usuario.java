@@ -11,9 +11,9 @@ public class Usuario{
     }
 
     public void Cadastrar(){
-        System.out.print("\nCadastro de usuário:");
+        System.out.print("\n--- Cadastro de usuário ---");
 
-        System.out.println("\nInforme seu nome: ");
+        System.out.println("Informe seu nome: ");
         nome = scn.nextLine();
 
         System.out.println("\nInforme seu email: ");
@@ -24,12 +24,12 @@ public class Usuario{
             
     }
     public void Atualizar(){
-        System.out.print("Atualização de cadastro:");
+        System.out.print("--- Atualização de cadastro ---");
 
-        System.out.println("\nInforme seu nome: ");
+        System.out.println("Informe seu nome: ");
         nome = scn.nextLine();
 
-        System.out.println("\nInforme seu email: ");
+        System.out.println("Informe seu email: ");
         email = scn.nextLine();
 
         System.out.println(nome);
@@ -39,17 +39,17 @@ public class Usuario{
             
         System.out.println("--- Fazer Pedido ---");
     
-        System.out.print("Nome do cliente: ");
+        System.out.println("Nome do cliente: ");
         String nomeCliente = scn.nextLine();
 
-        System.out.print("Item do pedido: ");
+        System.out.println("Item do pedido: ");
         String itemPedido = scn.nextLine();
 
-        System.out.print("Quantidade: ");
+        System.out.println("Quantidade: ");
         int quantidade = scn.nextInt();
-        scn.nextLine(); // Limpar o buffer do scanner
+        scn.nextLine(); // Limpa o buffer do scanner
 
-        System.out.print("Observações: ");
+        System.out.println("Observações: ");
         String observacoes = scn.nextLine();
 
         System.out.println("\n--- Resumo do Pedido ---");
