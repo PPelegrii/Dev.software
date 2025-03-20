@@ -37,7 +37,7 @@ public class Usuario{
 
         System.out.println("\nInforme seu email: ");
         email = scn.nextLine();
-            if(email.contains("@")){
+            if(email.contains("@gmail.com")){ // auto explicativo 
                 System.out.println(email);
             }else{
                 System.out.println("Insira um email válido!");

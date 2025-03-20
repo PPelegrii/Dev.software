@@ -7,17 +7,15 @@
  * 
  */
 package RestauranteFit;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-import RestauranteFit.Usuario;
-import RestauranteFit.Pedido;
+// import RestauranteFit.Usuario;
+// import RestauranteFit.Pedido;
     
 public class Produto{
     private static ArrayList<Produto> listaProdutos = new ArrayList<>(); // Lista de produtos
-    private Pedido pedido; // Composição
+    // private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
-    private ZonedDateTime data;// Data e hora atual
     private String id, nomeproduto;
     private double valorproduto;
     private int estoque;
@@ -50,6 +48,13 @@ public class Produto{
         listaProdutos.add(produto); // Adiciona o produto à lista
 
         System.out.println("Produto cadastrado com sucesso! ID: " + id);
+        System.out.println("Deseja cadastrar outro produto?\n1 - Sim\n2 - Não");
+        int opcao = scn.nextInt();
+        if (opcao == 1) {
+            cadastrarProduto();
+        } else {
+            return;
+        }
     }
     // Método para listar todos os produtos
     public void listarProdutos() {
@@ -79,7 +84,7 @@ public class Produto{
             }
 
         System.out.println("\nInforme o valor do produto: ");
-        double valorNovo = scn.nextDouble();
+        double valorprodutoNovo = scn.nextDouble();
             if((valorproduto) == (valorprodutoNovo)){
                 System.out.println("\nCampo não pode ser o mesmo que antes!: ");
                 return;
@@ -88,7 +93,7 @@ public class Produto{
             }
 
         System.out.println("\nInforme a quantidade em estoque: ");
-        int estoqueNovo = scn.nextInt();
+        int estoqueprodutoNovo = scn.nextInt();
             if((estoque) == (estoqueprodutoNovo)){
                 System.out.println("\nCampo não pode ser o mesmo que antes!: ");
                 return;
@@ -98,7 +103,9 @@ public class Produto{
         System.out.println("Nome: "+ nomeproduto + "\nValor: R$ "+ valorproduto + "\nEstoque: "+ estoque);
     }
     // Método para verificar o estoque de um produto
-    public void verificarEstoque(String idProduto) {
+    public void verificarEstoque(){
+        System.out.println("Insira o ID do produto para checar no estoque");
+        String idProduto = scn.nextLine();
         for (Produto produto : listaProdutos) {
             if (produto.id.equals(idProduto)) {
                 if (produto.estoque > 0) {
@@ -109,6 +116,6 @@ public class Produto{
                 return;
             }
         }
-        System.out.println("Produto não encontrado.");
+        //System.out.println("Produto não encontrado.");
     }
 }

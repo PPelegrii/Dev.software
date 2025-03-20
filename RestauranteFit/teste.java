@@ -1,7 +1,4 @@
 package RestauranteFit;
-import RestauranteFit.Usuario;
-import RestauranteFit.Produto;
-import RestauranteFit.Pedido;
 
 public class teste {
     public static void main(String[] args) {
@@ -11,9 +8,9 @@ public class teste {
         String id = usuario.pegarID();
         System.out.println("ID do usuário: " + id);
 
-        Produto produto = new Produto(); // descobrir pq isso não funciona
+        Produto produto = new Produto();
         produto.cadastrarProduto();
         produto.listarProdutos();
-        produto.verificarEstoque();        
+        produto.verificarEstoque(); // tem um erro aqui  
     }
 }

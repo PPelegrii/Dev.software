@@ -9,12 +9,11 @@
 package RestauranteFit;
 import java.time.ZonedDateTime;
 import java.util.Scanner;
-import RestauranteFit.Usuario;
-import RestauranteFit.Produto;
+// import RestauranteFit.Produto;
 
 public class Pedido extends Usuario{
     private Usuario usuario; // Composição
-    private Pedido pedido; // Composição
+    //private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
     private ZonedDateTime data;// Data e hora atual
     private String id, statuspedido;
@@ -75,14 +74,4 @@ public class Pedido extends Usuario{
     public void finalizarPedido(){
         System.out.println("Pedido finalizado!");
     }
-
-
-
-
-
-
-
-
-
-
 }
