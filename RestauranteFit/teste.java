@@ -11,7 +11,7 @@ public class teste {
         String id = usuario.pegarID();
         System.out.println("ID do usuário: " + id);
 
-        Produto produto = new Produto();
+        Produto produto = new Produto(); // descobrir pq isso não funciona
         produto.cadastrarProduto();
         produto.listarProdutos();
         produto.verificarEstoque();        
