@@ -4,7 +4,7 @@
  * Versão inicial por PedroH no dia 19/03/25. 
  * 
  * Historico de alterações:
- * 19/03/25
+ * 
  */
 package RestauranteFit;
 import java.time.ZonedDateTime;

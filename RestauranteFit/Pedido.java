@@ -4,7 +4,7 @@
  * Versão inicial por PedroH no dia 18/03/25. 
  * 
  * Historico de alterações:
- * 19/03/25 finalizado protitipo - PH
+ * 19/03/25 finalizado prototipo - PH
  */
 package RestauranteFit;
 import java.time.ZonedDateTime;
@@ -30,7 +30,7 @@ public class Pedido extends Usuario{
         this.valorpedido = 0.0; // Inicializa o valor do pedido
         this.observacoes = usuario.observacoes; // Acessa as observações do usuário 
     }
-    
+
     // Atualmente o valor do pedido é inserido manualmente, precisa implementar a lógica para somar o valor dos produtos individualmente
     public void calcularTotal(){
         boolean valorValido = false; // check para verificar se o valor é válido
