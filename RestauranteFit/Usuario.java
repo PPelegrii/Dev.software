@@ -18,6 +18,7 @@ public class Usuario{
     protected String nome, email;
     private Scanner scn; // Scanner como variável de instância
     public String observacoes;
+    public Endereco endereco;
 
     public Usuario(){ // Construtor
         scn = new Scanner(System.in); // inicia o scan
@@ -43,6 +44,7 @@ public class Usuario{
                 System.out.println("Insira um email válido!");
                 return;
             }
+        this.endereco = new Endereco();
         System.out.println("Nome: "+ nome + "\nE-mail: "+ email);
         gerarID(); // gera o ID do usuario para ser usado em outras classes | referencia linha 23
     }
