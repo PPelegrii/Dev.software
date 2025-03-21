@@ -13,12 +13,12 @@ import java.util.Scanner;
 // import RestauranteFit.Pedido;
     
 public class Produto{
-    private static ArrayList<Produto> listaProdutos = new ArrayList<>(); // Lista de produtos
+    public static ArrayList<Produto> listaProdutos = new ArrayList<>(); // Lista de produtos
     // private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
     protected String id, nomeproduto;
     public double valorproduto;
-    private int estoque;
+    public int estoque;
     
     // Construtor padrão
     public Produto(){
@@ -124,5 +124,8 @@ public class Produto{
             }
         }
         System.out.println("Produto não encontrado.");
+    }
+    public void closeScanner(){ // fecha o scanner de entrada
+        scn.close();
     }
 }

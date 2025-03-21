@@ -8,12 +8,17 @@ public class teste {
         // Cria um usuário
         Usuario usuario = new Usuario();
         //usuario.Cadastrar();
-        String id = usuario.pegarID();
-        System.out.println("ID do usuário: " + id);
+        //usuario.gerarID();
+        //String id = usuario.pegarID();
+        //System.out.println("ID do usuário: " + id);
 
-        Produto produto = new Produto();
+        //Produto produto = new Produto();
         //produto.cadastrarProduto();
         //produto.listarProdutos();
-        produto.verificarEstoque(); // :]
+        //produto.verificarEstoque(); // :]
+
+        Pedido pedido = new Pedido(usuario);
+        usuario.fazerPedido();
+        pedido.calcularTotal();
     }
 }

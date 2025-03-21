@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class Pedido extends Usuario{
     private Usuario usuario; // Composição
-    //private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
     private ZonedDateTime data;// Data e hora atual
     private String id, statuspedido;
@@ -28,7 +27,6 @@ public class Pedido extends Usuario{
         this.id = usuario.pegarID(); // Usa o ID do usuário associado
         this.statuspedido = "Em andamento"; // Inicializa o status do pedido
         this.valorpedido = 0.0; // Inicializa o valor do pedido
-        this.observacoes = usuario.observacoes; // Acessa as observações do usuário 
     }
 
     // Atualmente o valor do pedido é inserido manualmente, precisa implementar a lógica para somar o valor dos produtos individualmente
@@ -37,9 +35,9 @@ public class Pedido extends Usuario{
         while (!valorValido) {
             try {
                 System.out.print("Digite o valor do pedido: ");
-                this.valorpedido = scn.nextDouble(); // Lê o valor do pedido
+                this.valorpedido = scn.nextDouble();
                 scn.nextLine(); // Limpa o buffer do Scanner
-                valorValido = true; // Define como válido se não houver exceção
+                valorValido = true;
             } catch (java.util.InputMismatchException e){
                 System.out.println("Entrada inválida! Por favor, insira um número válido.");
                 scn.nextLine(); // Limpa o buffer do Scanner para evitar loop infinito
@@ -57,7 +55,7 @@ public class Pedido extends Usuario{
         System.out.println("Status do pedido: " + statuspedido);
         System.out.println("Valor do pedido: R$ " + valorpedido);
         System.out.println("Usuário associado: " + usuario.nome); // Acessa o nome do usuário
-        System.out.println("Observações: " + observacoes);
+        System.out.println("Observações: " + usuario.observacoes);// Acessa as observações
         System.out.println("\nDeseja adicionar mais produtos ao pedido?\n1 - Sim\n2 - Não");
         int opcao = scn.nextInt();
         if (opcao == 1) {

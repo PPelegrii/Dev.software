@@ -74,15 +74,36 @@ public class Usuario{
         String nomeCliente = nome;
 
         System.out.print("Item do pedido: ");
-        String itemPedido = scn.nextLine();
+        String itemPedido = scn.nextLine().toLowerCase();
+        
+        Produto produtoEscolhido = null;
+        for (Produto produto : Produto.listaProdutos) {
+        if (produto.nomeproduto.equalsIgnoreCase(itemPedido)) { // Compara sem diferenciar maiúsculas e minúsculas
+            produtoEscolhido = produto;
+            break;
+        }
+    }
+    
+        if (produtoEscolhido == null) {
+            System.out.println("Erro: Produto não encontrado! Tente novamente.");
+            return;
+        }
 
         System.out.print("Quantidade: ");
         int quantidade = scn.nextInt();
         scn.nextLine(); // Limpa o buffer do scanner
 
+        if (quantidade > produtoEscolhido.estoque){ // Verifica se há estoque suficiente
+            System.out.println("Erro: Estoque insuficiente! Apenas " + produtoEscolhido.estoque + " unidades disponíveis.");
+            return;
+        }
+
         System.out.print("Observações: ");
         this.observacoes = scn.nextLine();
 
+        // Atualiza o estoque após o pedido
+        produtoEscolhido.estoque -= quantidade;
+        
         System.out.println("\n--- Resumo do Pedido ---");
         System.out.println("Cliente: " + nomeCliente);
         System.out.println("Item: " + itemPedido);
