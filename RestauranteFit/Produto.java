@@ -33,10 +33,11 @@ public class Produto{
     }
 
     static{ // Lista de produtos 
-        listaProdutos.add(new Produto("PROD-1", "blah1", 25.99, 0));
-        listaProdutos.add(new Produto("PROD-2", "blah2", 12.50, 15));
-        listaProdutos.add(new Produto("PROD-3", "blah3",30.41, 18));
-        listaProdutos.add(new Produto("PROD-4", "blah4", 20.75, 12));
+        listaProdutos.add(new Produto("PROD-1", "temp/produto_1", 25.99, 0));
+        listaProdutos.add(new Produto("PROD-2", "temp/produto_2", 12.50, 15));
+        listaProdutos.add(new Produto("PROD-3", "temp/produto_3", 30.41, 18));
+        listaProdutos.add(new Produto("PROD-4", "temp/produto_4", 20.75, 12));
+        listaProdutos.add(new Produto("PROD-5", "temp/produto_5", 18.85, 10));
     }
         
     // Método para cadastrar um produto
@@ -115,9 +116,9 @@ public class Produto{
         for (Produto produto : listaProdutos) {
             if (produto.id.equals(idProduto)) {
                 if (produto.estoque > 0) {
-                    System.out.println("\nProduto "+ produto.id +" " + produto.nomeproduto + "\nDISPONÍVEL\nEstoque: " + produto.estoque);
+                    System.out.println("\nProduto:\n"+ produto.id +" " + produto.nomeproduto + "\nStatus: DISPONÍVEL\nEstoque: " + produto.estoque);
                 } else {
-                    System.out.println("\nProduto "+ produto.id +" " + produto.nomeproduto + "\nINDISPONÍVEL no momento. :(");
+                    System.out.println("\nProduto:\n "+ produto.id +" " + produto.nomeproduto + "\nStatus: INDISPONÍVEL :(");
                 }
                 return;
             }
