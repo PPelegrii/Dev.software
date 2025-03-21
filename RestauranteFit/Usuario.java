@@ -1,6 +1,6 @@
 /*Documentação
  * 
- * Esse arquivo é competente a classe Usuario, assim como seus métodos declarados no documento do projeto 
+ * Esse arquivo é competente a classe Usuario, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por PedroH no dia 13/03/25. 
  * 
  * Historico de alterações
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Usuario{
     private String id; // Id privado do usuário
     protected String nome, email;
-    private Scanner scn; // Scanner como variável de instância
+    final Scanner scn; // Scanner como variável de instância
     public String observacoes;
     public Endereco endereco;
 

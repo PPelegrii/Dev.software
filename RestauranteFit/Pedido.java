@@ -1,6 +1,7 @@
 /*Documentação
  * 
- * Esse arquivo é competente a classe Pedido, assim como seus métodos declarados no documento do projeto 
+ * Esse arquivo é competente a classe Pedido, assim como seus métodos declarados no documento do projeto .
+
  * Versão inicial por PedroH no dia 18/03/25. 
  * 
  * Historico de alterações:
@@ -39,7 +40,7 @@ public class Pedido extends Usuario{
                 this.valorpedido = scn.nextDouble(); // Lê o valor do pedido
                 scn.nextLine(); // Limpa o buffer do Scanner
                 valorValido = true; // Define como válido se não houver exceção
-            } catch (java.util.InputMismatchException e) {
+            } catch (java.util.InputMismatchException e){
                 System.out.println("Entrada inválida! Por favor, insira um número válido.");
                 scn.nextLine(); // Limpa o buffer do Scanner para evitar loop infinito
             }
@@ -73,5 +74,8 @@ public class Pedido extends Usuario{
     }
     public void finalizarPedido(){
         System.out.println("Pedido finalizado!");
+    }
+    public void closeScanner(){ // fecha o scanner de entrada
+        scn.close();
     }
 }

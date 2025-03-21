@@ -1,10 +1,10 @@
 /*Documentação
  * 
- * Esse arquivo é competente a classe Produto, assim como seus métodos declarados no documento do projeto 
+ * Esse arquivo é competente a classe Produto, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por PedroH no dia 19/03/25. 
  * 
  * Historico de alterações:
- * 
+ * 21/03/25 adicionado lista de produtos fixa e verificarEstoque() está funcional - PH
  */
 package RestauranteFit;
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ public class Produto{
     private static ArrayList<Produto> listaProdutos = new ArrayList<>(); // Lista de produtos
     // private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
-    private String id, nomeproduto;
-    private double valorproduto;
+    protected String id, nomeproduto;
+    public double valorproduto;
     private int estoque;
     
     // Construtor padrão
@@ -31,6 +31,14 @@ public class Produto{
         this.valorproduto = valorproduto;
         this.estoque = estoque;
     }
+
+    static{ // Lista de produtos 
+        listaProdutos.add(new Produto("PROD-1", "blah1", 25.99, 0));
+        listaProdutos.add(new Produto("PROD-2", "blah2", 12.50, 15));
+        listaProdutos.add(new Produto("PROD-3", "blah3",30.41, 18));
+        listaProdutos.add(new Produto("PROD-4", "blah4", 20.75, 12));
+    }
+        
     // Método para cadastrar um produto
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
@@ -52,8 +60,6 @@ public class Produto{
         int opcao = scn.nextInt();
         if (opcao == 1) {
             cadastrarProduto();
-        } else {
-            return;
         }
     }
     // Método para listar todos os produtos
@@ -104,18 +110,18 @@ public class Produto{
     }
     // Método para verificar o estoque de um produto
     public void verificarEstoque(){
-        System.out.println("Insira o ID do produto para checar no estoque");
-        String idProduto = scn.nextLine();
+        System.out.println("Insira 'PROD-' + o ID do produto para checar no estoque");
+        String idProduto = scn.nextLine().toUpperCase(); // garante que o ID inserido sempre seja maiuscula
         for (Produto produto : listaProdutos) {
             if (produto.id.equals(idProduto)) {
                 if (produto.estoque > 0) {
-                    System.out.println("Produto disponível. Estoque: " + produto.estoque);
+                    System.out.println("\nProduto "+ produto.id +" " + produto.nomeproduto + "\nDISPONÍVEL\nEstoque: " + produto.estoque);
                 } else {
-                    System.out.println("Produto indisponível no momento.");
+                    System.out.println("\nProduto "+ produto.id +" " + produto.nomeproduto + "\nINDISPONÍVEL no momento. :(");
                 }
                 return;
             }
         }
-        //System.out.println("Produto não encontrado.");
+        System.out.println("Produto não encontrado.");
     }
 }
