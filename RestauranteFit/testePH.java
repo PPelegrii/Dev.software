@@ -3,7 +3,7 @@ package RestauranteFit;
  * blah blah blah teste teste não compila blah
  */
 
-public class teste {
+public class testePH{
     public static void main(String[] args) {
         // Cria um usuário
         Usuario usuario = new Usuario();
