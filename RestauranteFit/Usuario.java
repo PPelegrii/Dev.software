@@ -3,11 +3,17 @@
  * Esse arquivo é competente a classe Usuario, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por PedroH no dia 13/03/25. 
  * 
+ * Referências:
+ * https://www.w3schools.com/java/
+ * https://docs.oracle.com/javase/tutorial/index.html
+ * https://www.geeksforgeeks.org/java/
+ * Copilot AI, ChatGPT
+ * 
  * Historico de alterações
  * 14/03/25 adicionado ifs nas entradas de dados e otimizações no código. - PH
  * 18/03/25 adicionado método para gerar ID e pegar ID. - PH
  * 19/03/25 adicionado método para fazer pedido usando o ID . - PH
- * 
+ * 27/03/25 fazerPedido() transferido para Pedido.java afim de otimização e boas práticas - PH
  */
 package RestauranteFit; // Temporario afim de testes
 import java.util.Scanner;
@@ -69,48 +75,7 @@ public class Usuario{
 
         System.out.println("Nome: "+ nome + "\nE-mail: "+ email);
     }
-    public void fazerPedido(){
-        System.out.println("\n--- Fazer Pedido ---" + "\nNome do cliente: ");
-        String nomeCliente = nome;
 
-        System.out.print("Item do pedido: ");
-        String itemPedido = scn.nextLine().toLowerCase();
-        
-        Produto produtoEscolhido = null;
-        for (Produto produto : Produto.listaProdutos) {
-        if (produto.nomeproduto.equalsIgnoreCase(itemPedido)) { // Compara sem diferenciar maiúsculas e minúsculas
-            produtoEscolhido = produto;
-            break;
-        }
-    }
-    
-        if (produtoEscolhido == null) {
-            System.out.println("Erro: Produto não encontrado! Tente novamente.");
-            return;
-        }
-
-        System.out.print("Quantidade: ");
-        int quantidade = scn.nextInt();
-        scn.nextLine(); // Limpa o buffer do scanner
-
-        if (quantidade > produtoEscolhido.estoque){ // Verifica se há estoque suficiente
-            System.out.println("Erro: Estoque insuficiente! Apenas " + produtoEscolhido.estoque + " unidades disponíveis.");
-            return;
-        }
-
-        System.out.print("Observações: ");
-        this.observacoes = scn.nextLine();
-
-        // Atualiza o estoque após o pedido
-        produtoEscolhido.estoque -= quantidade;
-        
-        System.out.println("\n--- Resumo do Pedido ---");
-        System.out.println("Cliente: " + nomeCliente);
-        System.out.println("Item: " + itemPedido);
-        System.out.println("Quantidade: " + quantidade);
-        System.out.println("Observações: " + this.observacoes);
-
-    }
     public void closeScanner(){ // fecha o scanner de entrada
         scn.close();
     }
