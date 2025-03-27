@@ -13,11 +13,11 @@ import java.util.Scanner;
 // import RestauranteFit.Produto;
 
 public class Pedido extends Usuario{
-    private Usuario usuario; // Composição
-    private Scanner scn; // Scanner como variável de instância
-    private ZonedDateTime data;// Data e hora atual
-    private String id, statuspedido;
-    private double valorpedido;
+    public Usuario usuario; // Composição
+    public Scanner scn; // Scanner como variável de instância
+    public ZonedDateTime data;// Data e hora atual
+    public String id, statuspedido;
+    public double valorpedido;
 
     // Construtor que recebe um usuário
     public Pedido(Usuario usuario){

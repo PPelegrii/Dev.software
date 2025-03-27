@@ -25,15 +25,19 @@ public class Pagamento {
         System.out.print("Digite o valor pago: R$ ");
         this.valorPago = scn.nextDouble();
         scn.nextLine(); // Limpa o buffer
+        System.out.println("Digite o tipo de pagamento: ");
+        this.tipoPagamento = scn.nextLine();
 
         // Verifica se o valor pago é suficiente
-        if (valorPago >= pedido.valorpedido) {
-            this.pagamentoConcluido = true;
-            System.out.println("Pagamento de R$ " + valorPago + " realizado com sucesso!");
-            pedido.finalizarPedido(); // Finaliza o pedido após o pagamento
-        } else {
-            System.out.println("Erro: O valor pago é menor do que o valor do pedido!");
-            System.out.println("Tente novamente.");
+        while(!pagamentoConcluido){
+            if (valorPago >= pedido.valorpedido) {
+                this.pagamentoConcluido = true;
+                System.out.println("Pagamento de R$ " + valorPago + " realizado com sucesso!");
+                pedido.finalizarPedido(); // Finaliza o pedido após o pagamento
+            } else {
+                System.out.println("Erro: O valor pago é menor do que o valor do pedido!");
+                System.out.println("Tente novamente.");
+            }
         }
     }
     public void exibirDetalhesPagamento() {
