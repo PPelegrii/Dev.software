@@ -41,15 +41,21 @@ public class Usuario{
     public void Cadastrar(){
         System.out.println("Cadastro de usuário:" + "\nInforme seu nome: ");
         nome = scn.nextLine();
+        Boolean emailValido = false;
 
-        System.out.println("\nInforme seu email: ");
-        email = scn.nextLine();
-            if(email.contains("@gmail.com")){ // auto explicativo 
-                System.out.println(email);
-            }else{
-                System.out.println("Insira um email válido!");
-                return;
-            }
+        while(!emailValido){
+
+        
+            System.out.println("\nInforme seu email: ");
+            email = scn.nextLine();
+                if(email.contains("@gmail.com") || email.contains("@yahoo.com")|| email.contains("@hotmail.com")){ // auto explicativo 
+                    System.out.println(email);
+                    emailValido = true;
+                }else{
+                    System.out.println("Insira um email válido!");
+                    return;
+                }
+        }       
         this.endereco = new Endereco();
         System.out.println("Nome: "+ nome + "\nE-mail: "+ email);
         gerarID(); // gera o ID do usuario para ser usado em outras classes | referencia linha 23
@@ -68,7 +74,6 @@ public class Usuario{
         String emailNovo = scn.nextLine();
             if((emailNovo).equals(email)){
                 System.out.println("\nCampo não pode ser o mesmo que antes!: ");
-                return;
             }else{
                 email = emailNovo;
             }
