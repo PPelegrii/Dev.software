@@ -22,15 +22,18 @@ public class Pagamento {
         Scanner scn = new Scanner(System.in);
 
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
-        System.out.print("Digite o valor pago: R$ ");
-        this.valorPago = scn.nextDouble();
+        
+        
         scn.nextLine(); // Limpa o buffer
         System.out.println("Digite o tipo de pagamento: ");
         this.tipoPagamento = scn.nextLine();
 
         // Verifica se o valor pago é suficiente
         while(!pagamentoConcluido){
+            System.out.print("Digite o valor pago: R$ ");
+            this.valorPago = scn.nextDouble();
             if (valorPago >= pedido.valorpedido) {
+                
                 this.pagamentoConcluido = true;
                 System.out.println("Pagamento de R$ " + valorPago + " realizado com sucesso!");
                 pedido.finalizarPedido(); // Finaliza o pedido após o pagamento
