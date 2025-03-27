@@ -19,6 +19,8 @@ public class Endereco {
         System.out.println("Informe a cidade: ");
         this.cidade = scn.nextLine();
         System.out.println("Informe o estado: ");
-        estado = scn.nextLine();
+        this.estado = scn.nextLine();
+
+        scn.close();
     }
 }
