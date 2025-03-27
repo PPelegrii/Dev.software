@@ -22,10 +22,10 @@ public class Pedido extends Usuario{
     private final Usuario usuario; // Composição
     private final Scanner scn; // Scanner como variável de instância
     private final ZonedDateTime data;// Data e hora atual
-    private final String id, statuspedido;
-    private double valorpedido;
+    protected final String id, statuspedido;
+    protected double valorpedido;
 
-    // Construtor que recebe um usuário e os produtos
+    // Construtor que recebe um usuário
     public Pedido(Usuario usuario){
         this.usuario = usuario;
         this.scn = new Scanner(System.in); // inicia o scan

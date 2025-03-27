@@ -7,17 +7,19 @@ public class testePH{
     public static void main(String[] args) {
         // Cria um usuário
         Usuario usuario = new Usuario();
-        usuario.Cadastrar();
+        //usuario.Cadastrar();
         usuario.gerarID();
         String id = usuario.pegarID();
         System.out.println("ID do usuário: " + id);
 
-        Produto produto = new Produto(); // ta com erro
-        produto.cadastrarProduto();
+        Produto produto = new Produto();
         produto.listarProdutos();
         produto.verificarEstoque(); // :]
 
-        Pedido pedido = new Pedido(usuario);
+        // Declara e inicializa a variável pedido antes de pagamento
+        Pedido pedido = new Pedido(usuario, null);
+        Pagamento pagamento = new Pagamento(pedido);
+        pedido.setPagamento(pagamento); // Atualiza o pagamento no pedido
         pedido.fazerPedido(); // :] :] :] :] :] :] :] :] :]  funciona :] 
     }
 }

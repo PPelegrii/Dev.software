@@ -45,7 +45,7 @@ public class Pagamento {
     }
     public void exibirDetalhesPagamento() {
         System.out.println("\n--- Detalhes do Pagamento ---");
-        System.out.println("ID do Pedido: " + pedido.getId());
+        System.out.println("ID do Pedido: " + pedido.id);
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
         System.out.println("Valor Pago: R$ " + valorPago);
         System.out.println("Data do Pagamento: " + dataPagamento);
