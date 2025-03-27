@@ -3,8 +3,15 @@
  * Esse arquivo é competente a classe Produto, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por PedroH no dia 19/03/25. 
  * 
+ * Referências:
+ * https://www.w3schools.com/java/
+ * https://docs.oracle.com/javase/tutorial/index.html
+ * https://www.geeksforgeeks.org/java/
+ * Copilot AI, ChatGPT
+ * 
  * Historico de alterações:
  * 21/03/25 adicionado lista de produtos fixa e verificarEstoque() está funcional - PH
+ * 27/03/25 atualizado lista de produtos com ArrayList - PH
  */
 package RestauranteFit;
 import java.util.ArrayList;
@@ -13,10 +20,10 @@ import java.util.Scanner;
 // import RestauranteFit.Pedido;
     
 public class Produto{
-    public static ArrayList<Produto> listaProdutos = new ArrayList<>(); // Lista de produtos
+    public static ArrayList<Produto> listaProdutos = initializeListaProdutos(); // Lista de produtos
     // private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
-    protected String id, nomeproduto;
+    public String id, nomeproduto;
     public double valorproduto;
     public int estoque;
     
@@ -32,15 +39,16 @@ public class Produto{
         this.estoque = estoque;
     }
 
-    static{ // Lista de produtos 
-        listaProdutos.add(new Produto("PROD-1", "temp/produto_1", 25.99, 0));
-        listaProdutos.add(new Produto("PROD-2", "temp/produto_2", 12.50, 15));
-        listaProdutos.add(new Produto("PROD-3", "temp/produto_3", 30.41, 18));
-        listaProdutos.add(new Produto("PROD-4", "temp/produto_4", 20.75, 12));
-        listaProdutos.add(new Produto("PROD-5", "temp/produto_5", 18.85, 10));
+    private static ArrayList<Produto> initializeListaProdutos() { // inicializa a lista de produtos
+        ArrayList<Produto> produtos = new ArrayList<>(); // ele aumenta aumoticamente o tamanho do array
+        produtos.add(new Produto("PROD-1", "temp/produto_1", 25.99, 0));
+        produtos.add(new Produto("PROD-2", "temp/produto_2", 12.50, 15));
+        produtos.add(new Produto("PROD-3", "temp/produto_3", 30.41, 18));
+        produtos.add(new Produto("PROD-4", "temp/produto_4", 20.75, 12));
+        produtos.add(new Produto("PROD-5", "temp/produto_5", 18.85, 10));
+        return produtos;
     }
         
-    // Método para cadastrar um produto
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
         String nome = scn.nextLine();
@@ -52,7 +60,7 @@ public class Produto{
         int quantidade = scn.nextInt();
         scn.nextLine(); // Limpa o buffer do scanner
 
-        String id = "PROD-" + (listaProdutos.size() + 1); // Gera um ID único para o produto
+        id = "PROD-" + (listaProdutos.size() + 1); // Gera um ID único para o produto
         Produto produto = new Produto(id, nome, valor, quantidade);
         listaProdutos.add(produto); // Adiciona o produto à lista
 
