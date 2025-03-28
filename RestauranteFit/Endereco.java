@@ -29,6 +29,6 @@ public class Endereco {
         System.out.println("Informe o estado: ");
         this.estado = scn.nextLine();
 
-        scn.close();
+        
     }
 }

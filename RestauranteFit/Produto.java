@@ -16,12 +16,9 @@
 package RestauranteFit;
 import java.util.ArrayList;
 import java.util.Scanner;
-// import RestauranteFit.Usuario;
-// import RestauranteFit.Pedido;
     
 public class Produto{
     public static ArrayList<Produto> listaProdutos = initializeListaProdutos(); // Lista de produtos
-    // private Pedido pedido; // Composição
     private Scanner scn; // Scanner como variável de instância
     public String id, nomeproduto;
     public double valorproduto;
@@ -51,7 +48,7 @@ public class Produto{
         
     public void cadastrarProduto() {
         System.out.print("Digite o nome do produto: ");
-        //com erro
+  
         String nome = scn.nextLine();
 
         System.out.print("Digite o valor do produto: ");
