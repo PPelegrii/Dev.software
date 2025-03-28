@@ -17,7 +17,7 @@ public class Endereco {
 
     public Endereco(){
         Scanner scn = new Scanner(System.in);
-        System.out.println("ENDEREÇO");
+        System.out.println("\nENDEREÇO");
         System.out.println("Informe a rua: ");
         this.rua = scn.nextLine();
         System.out.println("Informe o número: ");

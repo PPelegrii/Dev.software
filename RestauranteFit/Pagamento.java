@@ -1,3 +1,12 @@
+/*Documentação
+ * 
+ * Esse arquivo é competente a classe Pagamento, assim como seus métodos declarados no documento do projeto .
+ * Versão inicial por Pedro Wu no dia 27/03/25. 
+ * 
+ * Historico de alterações
+ * 27/03/2025 adicionado documentação de código, assim como instruido pelo professor - PH
+ * 28/03/25 correções e adicionado a funcionalidade de troco - PW
+ */
 package RestauranteFit;
 
 import java.time.ZonedDateTime;
@@ -9,6 +18,7 @@ public class Pagamento {
     private String tipoPagamento;
     private ZonedDateTime dataPagamento;
     private Boolean pagamentoConcluido;
+    private double troco;
     
     public Pagamento(Pedido pedido){
         this.pedido = pedido;
@@ -24,9 +34,7 @@ public class Pagamento {
 
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
         
-        
-        scn.nextLine(); // Limpa o buffer
-        System.out.println("Digite o tipo de pagamento: ");
+        System.out.print("Digite o tipo de pagamento: ");
         this.tipoPagamento = scn.nextLine();
 
         // Verifica se o valor pago é suficiente
@@ -37,6 +45,8 @@ public class Pagamento {
                 
                 this.pagamentoConcluido = true;
                 System.out.println("Pagamento de R$ " + valorPago + " realizado com sucesso!");
+                troco = valorPago - pedido.valorpedido;
+                System.out.println("Troco: " + troco);
                 pedido.finalizarPedido(); // Finaliza o pedido após o pagamento
             } else {
                 System.out.println("Erro: O valor pago é menor do que o valor do pedido!");
@@ -49,6 +59,7 @@ public class Pagamento {
         System.out.println("ID do Pedido: " + pedido.id);
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
         System.out.println("Valor Pago: R$ " + valorPago);
+        System.out.println("Troco: " + troco);
         System.out.println("Data do Pagamento: " + dataPagamento);
         System.out.println("Tipo de Pagamento: " + tipoPagamento);
         System.out.println("Pagamento Concluído: " + (pagamentoConcluido ? "Sim" : "Não"));

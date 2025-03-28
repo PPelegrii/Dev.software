@@ -39,20 +39,20 @@ public class Usuario{
     }
 
     public void Cadastrar(){
-        System.out.println("Cadastro de usuário:" + "\nInforme seu nome: ");
+        System.out.print("\n --- Cadastro de usuário --- " + "\nInforme seu nome: ");
         nome = scn.nextLine();
         Boolean emailValido = false;
 
         while(!emailValido){
 
         
-            System.out.println("\nInforme seu email: ");
+            System.out.print("Informe seu email: ");
             email = scn.nextLine();
                 if(email.contains("@gmail.com") || email.contains("@yahoo.com")|| email.contains("@hotmail.com")){ // auto explicativo 
-                    System.out.println(email);
+                    System.out.print(email);
                     emailValido = true;
                 }else{
-                    System.out.println("Insira um email válido!");
+                    System.out.print("Insira um email válido!");
                     return;
                 }
         }       
