@@ -41,8 +41,8 @@ public class Pagamento {
         while(!pagamentoConcluido){
             System.out.print("Digite o valor pago: R$ ");
             this.valorPago = scn.nextDouble();
-            if (valorPago >= pedido.valorpedido) {
-                
+
+            if (valorPago >= pedido.valorpedido) { //Verifica se o valor pago é igual ou maior que o valor do pedido
                 this.pagamentoConcluido = true;
                 System.out.println("Pagamento de R$ " + valorPago + " realizado com sucesso!");
                 troco = valorPago - pedido.valorpedido;
@@ -54,7 +54,7 @@ public class Pagamento {
             }
         }
     }
-    public void exibirDetalhesPagamento() {
+    public void exibirDetalhesPagamento() { //Imprime os detalhes do pagamento
         System.out.println("\n--- Detalhes do Pagamento ---");
         System.out.println("ID do Pedido: " + pedido.id);
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
