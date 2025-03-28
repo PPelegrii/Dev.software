@@ -28,6 +28,6 @@ package RestauranteFit;
          Pagamento pagamento = new Pagamento(pedido);
          pagamento.realizarPagamento();
  
-         pagamento.exibirDetalhesPagamento();
+//         pagamento.exibirDetalhesPagamento();
      }
  }

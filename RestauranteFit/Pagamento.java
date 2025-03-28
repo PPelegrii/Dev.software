@@ -19,6 +19,7 @@ public class Pagamento {
     
     // Método para realizar o pagamento
     public void realizarPagamento() {
+        if(pedido.pedidoFuncionou == false) return;
         Scanner scn = new Scanner(System.in);
 
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);

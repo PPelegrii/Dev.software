@@ -24,6 +24,7 @@ public class Pedido extends Usuario{
     private final ZonedDateTime data;// Data e hora atual
     protected final String id, statuspedido;
     protected double valorpedido;
+    public Boolean pedidoFuncionou;
 
     // Construtor que recebe um usuário
     public Pedido(Usuario usuario){
@@ -36,6 +37,7 @@ public class Pedido extends Usuario{
     }
 
     public void fazerPedido(){
+        this.pedidoFuncionou = true;
         System.out.println("\n--- Fazer Pedido ---");
         System.out.println("Produtos disponíveis:");
         for (Produto produto : Produto.listaProdutos){
@@ -57,7 +59,9 @@ public class Pedido extends Usuario{
 
             if (produtoSelecionado == null) {
                 System.out.println("Produto não encontrado. Tente novamente.");
-                break;
+                this.pedidoFuncionou = false;
+                fazerPedido();
+                return;
             }
 
             System.out.print("Digite a quantidade desejada: ");
@@ -84,6 +88,7 @@ public class Pedido extends Usuario{
                 scn.nextLine(); // Limpa o buffer do Scanner
             }
             if (opcao == 2) {
+                if(produtoSelecionado.estoque == 0) return;
                 continuar = false;
             }
         }

@@ -17,9 +17,8 @@ public class testePH{
         produto.verificarEstoque(); // :]
 
         // Declara e inicializa a variável pedido antes de pagamento
-        Pedido pedido = new Pedido(usuario, null);
+        Pedido pedido = new Pedido(usuario);
         Pagamento pagamento = new Pagamento(pedido);
-        pedido.setPagamento(pagamento); // Atualiza o pagamento no pedido
-        pedido.fazerPedido(); // :] :] :] :] :] :] :] :] :]  funciona :] 
+        pedido.fazerPedido(); // :] :] :] :] :] :] :] :] :]  funciona :]
     }
 }
