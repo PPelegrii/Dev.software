@@ -1,6 +1,6 @@
 package RestauranteFit;
 
- public class Teste {
+ public class teste{
      public static void main(String[] args) {
          // Cria um usuário
          Usuario usuario = new Usuario();
@@ -9,7 +9,7 @@ package RestauranteFit;
          System.out.println("ID do usuário: " + id);
  
          Produto produto = new Produto();
-         produto.cadastrarProduto();
+         //produto.cadastrarProduto();
          produto.listarProdutos();
          produto.verificarEstoque(); // :]
          Pedido pedido = new Pedido(usuario);

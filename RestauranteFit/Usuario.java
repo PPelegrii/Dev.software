@@ -45,8 +45,6 @@ public class Usuario{
         Boolean emailValido = false;
 
         while(!emailValido){
-
-        
             System.out.print("Informe seu email: ");
             email = scn.nextLine();
                 if(email.contains("@gmail.com") || email.contains("@yahoo.com")|| email.contains("@hotmail.com")){ // auto explicativo 
@@ -60,8 +58,8 @@ public class Usuario{
         System.out.println("Nome: "+ nome + "\nE-mail: "+ email);
 
         if (this.id == null) { // Garante que o ID não seja gerado mais de uma vez
-        this.id = gerarID();  // gera o ID do usuario para ser usado em outras classes | referencia linha 23
-    } 
+        this.id = gerarID();  // gera o ID do usuario para ser usado em outras classes | referencia linha 33
+        } 
 
     }
     public void atualizarCadastro(){

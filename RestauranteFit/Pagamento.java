@@ -6,6 +6,7 @@
  * Historico de alterações
  * 27/03/2025 adicionado documentação de código, assim como instruido pelo professor - PH
  * 28/03/25 correções e adicionado a funcionalidade de troco - PW
+ * 01/04/25 melhorada interação com Produto.java | linha 59 - PH
  */
 package RestauranteFit;
 
@@ -32,7 +33,7 @@ public class Pagamento {
         if(pedido.pedidoFuncionou == false) return;
         Scanner scn = new Scanner(System.in);
 
-        System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);
+        System.out.println("\nValor do Pedido: R$ " + pedido.valorpedido);
         
         System.out.print("Digite o tipo de pagamento: ");
         this.tipoPagamento = scn.nextLine();
@@ -55,6 +56,7 @@ public class Pagamento {
         }
     }
     public void exibirDetalhesPagamento() { //Imprime os detalhes do pagamento
+        if(pedido.pedidoFuncionou == false) return;
         System.out.println("\n--- Detalhes do Pagamento ---");
         System.out.println("ID do Pedido: " + pedido.id);
         System.out.println("Valor do Pedido: R$ " + pedido.valorpedido);

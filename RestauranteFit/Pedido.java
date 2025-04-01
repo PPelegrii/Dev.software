@@ -11,7 +11,8 @@
  * 
  * Historico de alterações:
  * 19/03/25 finalizado prototipo - PH
- * 27/03/25 adicionado a lógica de fazer pedido, anteriormente calcularTotal, unido com método fazerPedido da classe Usuario- PH
+ * 27/03/25 adicionado a lógica de fazer pedido, anteriormente calcularTotal, unido com método fazerPedido da classe Usuario - PH
+ * 01/04/25 melhorado lógica e integração com Pagamento.java - PH
  */
 package RestauranteFit;
 import java.time.ZonedDateTime;
@@ -37,7 +38,7 @@ public class Pedido extends Usuario{
     }
 
     public void fazerPedido(){
-        this.pedidoFuncionou = true;
+        this.pedidoFuncionou = false;
         System.out.println("\n--- Fazer Pedido ---");
         System.out.println("Produtos disponíveis:");
         for (Produto produto : Produto.listaProdutos){
@@ -60,8 +61,7 @@ public class Pedido extends Usuario{
             if (produtoSelecionado == null) {
                 System.out.println("Produto não encontrado. Tente novamente.");
                 this.pedidoFuncionou = false;
-                fazerPedido();
-                return;
+                fazerPedido(); return;
             }
 
             System.out.print("Digite a quantidade desejada: ");
@@ -74,6 +74,7 @@ public class Pedido extends Usuario{
                 System.out.println("Produto adicionado ao pedido. Total parcial: R$ " + valorpedido);
             } else {
                 System.out.println("Quantidade insuficiente no estoque. Estoque disponível: " + produtoSelecionado.estoque);
+                cancelarPedido(); return;
             }
             System.out.print("Observações: ");
             this.observacoes = scn.nextLine();
@@ -87,8 +88,9 @@ public class Pedido extends Usuario{
                 opcao = scn.nextInt();
                 scn.nextLine(); // Limpa o buffer do Scanner
             }
-            if (opcao == 2) {
+            if (opcao == 2){
                 if(produtoSelecionado.estoque == 0) return;
+                finalizarPedido();
                 continuar = false;
             }
         }
@@ -104,6 +106,7 @@ public class Pedido extends Usuario{
     }
     public void adicionarPedido(){
         System.out.println("Pedido adicionado com sucesso!");
+        this.pedidoFuncionou = true; // a bool pedidoFuncionou faz mais sentido aqui
     }
     public void cancelarPedido(){
         System.out.println("Pedido cancelado!");
@@ -111,6 +114,7 @@ public class Pedido extends Usuario{
     public void finalizarPedido(){
         System.out.println("Pedido finalizado!");
     }
+    @Override
     public void closeScanner(){ // fecha o scanner de entrada
         scn.close();
     }

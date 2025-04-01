@@ -12,6 +12,7 @@
  * Historico de alterações:
  * 21/03/25 adicionado lista de produtos fixa e verificarEstoque() está funcional - PH
  * 27/03/25 atualizado lista de produtos com ArrayList - PH
+ * 01/04/25 melhorada lógica e polimento do código - PH
  */
 package RestauranteFit;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class Produto{
         this.estoque = estoque;
     }
 
-    private static ArrayList<Produto> initializeListaProdutos() { // inicializa a lista de produtos
+    private static ArrayList<Produto> initializeListaProdutos(){ // inicializa a lista de produtos
         ArrayList<Produto> produtos = new ArrayList<>(); // ele aumenta aumoticamente o tamanho do array
         produtos.add(new Produto("PROD-1", "temp/produto_1", 25.99, 0));
         produtos.add(new Produto("PROD-2", "temp/produto_2", 12.50, 15));
@@ -46,9 +47,8 @@ public class Produto{
         return produtos;
     }
         
-    public void cadastrarProduto() {
+    public void cadastrarProduto(){
         System.out.print("Digite o nome do produto: ");
-  
         String nome = scn.nextLine();
 
         System.out.print("Digite o valor do produto: ");
@@ -65,19 +65,24 @@ public class Produto{
         System.out.println("Produto cadastrado com sucesso! ID: " + id);
         System.out.println("Deseja cadastrar outro produto?\n1 - Sim\n2 - Não");
         int opcao = scn.nextInt();
-        if (opcao == 1) {
+        while(opcao != 1 && opcao != 2){
+            System.out.println("Opção inválida. 1 - Sim | 2 - Não");
+            opcao = scn.nextInt();
+            scn.nextLine(); // Limpa o buffer do Scanner
+        }
+        if (opcao == 1){
             cadastrarProduto();
         }
     }
     // Método para listar todos os produtos
-    public void listarProdutos() {
+    public void listarProdutos(){
         if (listaProdutos.isEmpty()) {
             System.out.println("Nenhum produto cadastrado.");
             return;
         }
 
         System.out.println("\n--- Lista de Produtos ---");
-        for (Produto produto : listaProdutos) {
+        for (Produto produto : listaProdutos){
             System.out.println("ID: " + produto.id);
             System.out.println("Nome: " + produto.nomeproduto);
             System.out.println("Valor: R$ " + produto.valorproduto);
@@ -119,13 +124,14 @@ public class Produto{
     public void verificarEstoque(){
         System.out.println("Insira 'PROD-' + o ID do produto para checar no estoque");
         String idProduto = scn.nextLine().toUpperCase(); // garante que o ID inserido sempre seja maiuscula
-        for (Produto produto : listaProdutos) {
-            if (produto.id.equals(idProduto)) {
+        for (Produto produto : listaProdutos){
+            if (produto.id.equals(idProduto)){
                 if (produto.estoque > 0) {
                     System.out.println("\nProduto:\n"+ produto.id +" " + produto.nomeproduto + "\nStatus: DISPONÍVEL\nEstoque: " + produto.estoque);
                 } else {
                     System.out.println("\nProduto:\n "+ produto.id +" " + produto.nomeproduto + "\nStatus: INDISPONÍVEL :(");
                 }
+                listarProdutos();
                 return;
             }
         }
