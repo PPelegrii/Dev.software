@@ -20,9 +20,8 @@ package RestauranteFit; // Temporario afim de testes
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Usuario{
+public class Usuario extends Pessoa {
     private String id; // Id privado do usuário
-    protected String nome, email;
     final Scanner scn; // Scanner como variável de instância
     public String observacoes;
     public Endereco endereco;
