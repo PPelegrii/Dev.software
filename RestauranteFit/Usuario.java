@@ -85,4 +85,14 @@ public class Usuario extends Pessoa {
     public void closeScanner(){ // fecha o scanner de entrada
         scn.close();
     }
+
+    // isso é polimorfismo. Método exibirInformacoes da classe pai Pessoa foi sobrescrita
+    @Override
+    public void exibirInformacoes() {
+        System.out.println("Usuário: " + nome);
+        System.out.println("Email: " + email);
+        if (endereco != null) {
+            System.out.println("Endereço: " + endereco.rua + ", " + endereco.numero + " - " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado);
+        }
+    }
 }

@@ -8,9 +8,10 @@
  */
 package RestauranteFit;
 import java.util.Scanner;
+
 public class Endereco {
     public String rua;
-    public String numero;
+    public int numero;
     public String bairro;
     public String cidade;
     public String estado;
@@ -18,17 +19,35 @@ public class Endereco {
     public Endereco(){
         Scanner scn = new Scanner(System.in);
         System.out.println("\nENDEREÇO");
-        System.out.println("Informe a rua: ");
-        this.rua = scn.nextLine();
-        System.out.println("Informe o número: ");
-        this.numero = scn.nextLine();
-        System.out.println("Informe o bairro: ");
-        this.bairro = scn.nextLine();
-        System.out.println("Informe a cidade: ");
-        this.cidade = scn.nextLine();
-        System.out.println("Informe o estado: ");
-        this.estado = scn.nextLine();
 
-        
+        try {
+            System.out.print("Informe a rua: ");
+            this.rua = scn.nextLine();
+
+            // Laço para garantir que o número seja um inteiro válido
+            while (true) {
+                System.out.print("Informe o número: ");
+                String numeroTexto = scn.nextLine();
+                try {
+                    this.numero = Integer.parseInt(numeroTexto);
+                    break; // sai do loop se deu certo
+                } catch (NumberFormatException ex) {
+                    System.out.println("Entrada inválida! Digite apenas números inteiros.");
+                }
+            }
+
+            System.out.print("Informe o bairro: ");
+            this.bairro = scn.nextLine();
+
+            System.out.print("Informe a cidade: ");
+            this.cidade = scn.nextLine();
+
+            System.out.print("Informe o estado: ");
+            this.estado = scn.nextLine();
+
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar endereço. Detalhes: " + e.getClass().getSimpleName() + " - " + e.getMessage());
+            return;
+        }
     }
 }

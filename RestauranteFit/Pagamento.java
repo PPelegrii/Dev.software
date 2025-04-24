@@ -14,7 +14,7 @@ import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 public class Pagamento {
-    private Pedido pedido;
+    private Pedido pedido; // isso é composição
     private double valorPago;
     private String tipoPagamento;
     private ZonedDateTime dataPagamento;

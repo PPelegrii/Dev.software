@@ -7,7 +7,8 @@ package RestauranteFit;
          usuario.Cadastrar();
          String id = usuario.pegarID();
          System.out.println("ID do usuário: " + id);
- 
+         usuario.exibirInformacoes();
+         /* 
          Produto produto = new Produto();
          //produto.cadastrarProduto();
          produto.listarProdutos();
@@ -19,5 +20,6 @@ package RestauranteFit;
          pagamento.realizarPagamento();
  
          pagamento.exibirDetalhesPagamento();
+         */
      }
  }
