@@ -88,7 +88,7 @@ public class Usuario extends Pessoa {
 
     // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
     @Override
-    public void exibirInformacoes() {
+    public void exibirInformacoes(){
         System.out.println("Usuário: " + nome);
         System.out.println("Email: " + email);
         if (endereco != null) {

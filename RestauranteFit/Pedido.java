@@ -19,13 +19,14 @@ import java.time.ZonedDateTime;
 import java.util.Scanner;
 // import RestauranteFit.Produto;
 
-public class Pedido extends Usuario{
+public class Pedido extends Exibir{
     private final Usuario usuario; // Composição
     private final Scanner scn; // Scanner como variável de instância
     private final ZonedDateTime data;// Data e hora atual
     protected final String id, statuspedido;
     protected double valorpedido;
-    public Boolean pedidoFuncionou;
+    public Boolean pedidoFuncionou; 
+    public String observacoes;
 
     // Construtor que recebe um usuário
     public Pedido(Usuario usuario){
@@ -128,7 +129,7 @@ public class Pedido extends Usuario{
     public void finalizarPedido(){
         System.out.println("Pedido finalizado!");
     }
-    @Override
+
     public void closeScanner(){ // fecha o scanner de entrada
         scn.close();
     }

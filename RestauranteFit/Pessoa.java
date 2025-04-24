@@ -1,7 +1,6 @@
 package RestauranteFit;
 
-public abstract class Pessoa {
+public abstract class Pessoa extends Exibir{
     protected String nome, email;
-    // isso é polimorfismo. método genérico que pode ter várias formas
-    public abstract void exibirInformacoes();
+
 }
