@@ -48,7 +48,7 @@ public class Produto{
     }
         
     public void cadastrarProduto(){
-        System.out.print("Digite o nome do produto: ");
+        System.out.print("\nDigite o nome do produto: ");
         String nome = scn.nextLine();
 
         System.out.print("Digite o valor do produto: ");

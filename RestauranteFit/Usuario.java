@@ -50,7 +50,7 @@ public class Usuario extends Pessoa {
                     System.out.print(email);
                     emailValido = true;
                 }else{
-                    System.out.print("Insira um email válido!");
+                    System.out.print("\nInsira um email válido!");
                 }
         }       
         this.endereco = new Endereco();
@@ -86,7 +86,7 @@ public class Usuario extends Pessoa {
         scn.close();
     }
 
-    // isso é polimorfismo. Método exibirInformacoes da classe pai Pessoa foi sobrescrita
+    // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
     @Override
     public void exibirInformacoes() {
         System.out.println("Usuário: " + nome);
@@ -94,5 +94,6 @@ public class Usuario extends Pessoa {
         if (endereco != null) {
             System.out.println("Endereço: " + endereco.rua + ", " + endereco.numero + " - " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado);
         }
+        
     }
 }

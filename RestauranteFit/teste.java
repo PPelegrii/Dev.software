@@ -8,9 +8,9 @@ package RestauranteFit;
          String id = usuario.pegarID();
          System.out.println("ID do usuário: " + id);
          usuario.exibirInformacoes();
-         /* 
+         
          Produto produto = new Produto();
-         //produto.cadastrarProduto();
+         produto.cadastrarProduto();
          produto.listarProdutos();
          produto.verificarEstoque(); // :]
          Pedido pedido = new Pedido(usuario);
@@ -20,6 +20,6 @@ package RestauranteFit;
          pagamento.realizarPagamento();
  
          pagamento.exibirDetalhesPagamento();
-         */
+         
      }
  }

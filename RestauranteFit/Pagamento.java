@@ -49,7 +49,7 @@ public class Pagamento {
                 troco = valorPago - pedido.valorpedido;
                 System.out.println("Troco: " + troco);
                 pedido.finalizarPedido(); // Finaliza o pedido após o pagamento
-            } else {
+            } else if(valorPago < pedido.valorpedido){
                 System.out.println("Erro: O valor pago é menor do que o valor do pedido!");
                 System.out.println("Tente novamente.");
             }

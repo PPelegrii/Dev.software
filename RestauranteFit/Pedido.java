@@ -65,8 +65,19 @@ public class Pedido extends Usuario{
             }
 
             System.out.print("Digite a quantidade desejada: ");
-            int quantidade = scn.nextInt();
-            scn.nextLine(); // Limpa o buffer do Scanner
+            int quantidade = 0; 
+            boolean entradaValida = false;
+
+            while (!entradaValida) {
+                try {
+                    quantidade = scn.nextInt();
+                    scn.nextLine(); // Limpa o buffer do Scanner
+                    entradaValida = true;
+                } catch (Exception e) {
+                    System.out.println("Erro: você deve digitar um número inteiro válido!");
+                    scn.nextLine(); // Limpa a entrada inválida
+                }
+            }
 
             if (produtoSelecionado.estoque >= quantidade){
                 produtoSelecionado.estoque -= quantidade;
@@ -96,9 +107,12 @@ public class Pedido extends Usuario{
         }
         System.out.println("Valor total do pedido: R$ " + valorpedido);
         adicionarPedido();
-        informacoesPedido();
+        exibirInformacoes();
     }
-    public void informacoesPedido(){
+
+        // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
+    @Override
+    public void exibirInformacoes(){
         System.out.println("\n--- Informações do Pedido ---");
         System.out.println("ID do pedido: " + id + "\nData do pedido: " + data);                         // id e data
         System.out.println("Status do pedido: " + statuspedido + "\nValor do pedido: R$ " + valorpedido); // status e valor pedido
