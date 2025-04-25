@@ -39,10 +39,10 @@ public class Produto{
 
     private static ArrayList<Produto> initializeListaProdutos(){ // inicializa a lista de produtos
         ArrayList<Produto> produtos = new ArrayList<>(); // ele aumenta aumoticamente o tamanho do array
-        produtos.add(new Produto("PROD-1", "Pizza", 25.99, 1));
+        produtos.add(new Produto("PROD-1", "Pizza", 25.90, 1));
         produtos.add(new Produto("PROD-2", "Coxinha", 7.50, 15));
         produtos.add(new Produto("PROD-3", "Pastel", 10.00, 18));
-        produtos.add(new Produto("PROD-4", "Espaguete", 23.99, 12));
+        produtos.add(new Produto("PROD-4", "Espaguete", 23.90, 12));
         produtos.add(new Produto("PROD-5", "Coca", 6.00, 10));
         return produtos;
     }
