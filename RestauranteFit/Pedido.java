@@ -7,17 +7,12 @@
  * https://www.w3schools.com/java/
  * https://docs.oracle.com/javase/tutorial/index.html
  * https://www.geeksforgeeks.org/java/
- * Copilot AI, ChatGPT
  * 
- * Historico de alterações:
- * 19/03/25 finalizado prototipo - PH
- * 27/03/25 adicionado a lógica de fazer pedido, anteriormente calcularTotal, unido com método fazerPedido da classe Usuario - PH
- * 01/04/25 melhorado lógica e integração com Pagamento.java - PH
  */
 package RestauranteFit;
 import java.time.ZonedDateTime;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-// import RestauranteFit.Produto;
 
 public class Pedido extends Exibir{
     private final Usuario usuario; // Composição
@@ -74,7 +69,7 @@ public class Pedido extends Exibir{
                     quantidade = scn.nextInt();
                     scn.nextLine(); // Limpa o buffer do Scanner
                     entradaValida = true;
-                } catch (Exception e) {
+                } catch (InputMismatchException e) {
                     System.out.println("Erro: você deve digitar um número inteiro válido!");
                     scn.nextLine(); // Limpa a entrada inválida
                 }
@@ -111,7 +106,7 @@ public class Pedido extends Exibir{
         exibirInformacoes();
     }
 
-        // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
+    // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
     @Override
     public void exibirInformacoes(){
         System.out.println("\n--- Informações do Pedido ---");
