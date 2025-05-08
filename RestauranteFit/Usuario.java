@@ -16,7 +16,7 @@ public class Usuario extends Pessoa {
     private String id; // Id privado do usuário
     final Scanner scn; // Scanner como variável de instância
     public String observacoes;
-    public Endereco endereco;
+    public Endereco endereco; // Agregação. Endereço não precisa de usuario para funcionar
 
     public Usuario(){ // Construtor
         scn = new Scanner(System.in); // inicia o scan

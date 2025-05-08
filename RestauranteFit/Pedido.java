@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Pedido extends Exibir{
-    private final Usuario usuario; // Composição
+    private final Usuario usuario; // Associação. O Pedido usa Usuario mas não controla seu ciclo de vida
     private final Scanner scn; // Scanner como variável de instância
     private final ZonedDateTime data;// Data e hora atual
     protected final String id, statuspedido;
@@ -27,7 +27,7 @@ public class Pedido extends Exibir{
         this.usuario = usuario;
         this.scn = new Scanner(System.in); // inicia o scan
         this.data = ZonedDateTime.now(); // Pega a data e hora atual
-        this.id = usuario.pegarID(); // Usa o ID do usuário associado
+        this.id = usuario.pegarID(); // Dependência. A classe Pedido depende da Classe Usuário para obter o ID do usuário associado ao pedido
         this.statuspedido = "Em andamento"; // Inicializa o status do pedido
         this.valorpedido = 0.0; // Inicializa o valor do pedido
     }
