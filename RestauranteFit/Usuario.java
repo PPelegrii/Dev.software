@@ -7,14 +7,6 @@
  * https://www.w3schools.com/java/
  * https://docs.oracle.com/javase/tutorial/index.html
  * https://www.geeksforgeeks.org/java/
- * Copilot AI, ChatGPT
- * 
- * Historico de alterações
- * 14/03/25 adicionado ifs nas entradas de dados e otimizações no código. - PH
- * 18/03/25 adicionado método para gerar ID e pegar ID. - PH
- * 19/03/25 adicionado método para fazer pedido usando o ID . - PH
- * 27/03/25 fazerPedido() transferido para Pedido.java afim de otimização e boas práticas - PH
- * 28/03/25 correções em email para que o usuário possa digitar denovo se não for válido
  */
 package RestauranteFit; // Temporario afim de testes
 import java.util.Scanner;

@@ -7,12 +7,6 @@
  * https://www.w3schools.com/java/
  * https://docs.oracle.com/javase/tutorial/index.html
  * https://www.geeksforgeeks.org/java/
- * Copilot AI, ChatGPT
- * 
- * Historico de alterações:
- * 21/03/25 adicionado lista de produtos fixa e verificarEstoque() está funcional - PH
- * 27/03/25 atualizado lista de produtos com ArrayList - PH
- * 01/04/25 melhorada lógica e polimento do código - PH
  */
 package RestauranteFit;
 import java.util.ArrayList;

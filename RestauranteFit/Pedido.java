@@ -7,7 +7,6 @@
  * https://www.w3schools.com/java/
  * https://docs.oracle.com/javase/tutorial/index.html
  * https://www.geeksforgeeks.org/java/
- * 
  */
 package RestauranteFit;
 import java.time.ZonedDateTime;

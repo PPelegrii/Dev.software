@@ -2,9 +2,6 @@
  * 
  * Esse arquivo é competente a classe Endereço, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por Kaue no dia 20/03/25. 
- * 
- * Historico de alterações
- * 27/03/2025 adicionado documentação de código, assim como instruido pelo professor - PH
  */
 package RestauranteFit;
 import java.util.Scanner;

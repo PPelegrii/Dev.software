@@ -2,11 +2,6 @@
  * 
  * Esse arquivo é competente a classe Pagamento, assim como seus métodos declarados no documento do projeto .
  * Versão inicial por Pedro Wu no dia 27/03/25. 
- * 
- * Historico de alterações
- * 27/03/2025 adicionado documentação de código, assim como instruido pelo professor - PH
- * 28/03/25 correções e adicionado a funcionalidade de troco - PW
- * 01/04/25 melhorada interação com Produto.java | linha 59 - PH
  */
 package RestauranteFit;
 
