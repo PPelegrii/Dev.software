@@ -74,15 +74,15 @@ public class Produto{
             System.out.println("Nenhum produto cadastrado.");
             return;
         }
-
+        listaProdutos.trimToSize();
         System.out.println("\n--- Lista de Produtos ---");
-        for (Produto produto : listaProdutos){
+        listaProdutos.forEach(produto -> {
             System.out.println("ID: " + produto.id);
             System.out.println("Nome: " + produto.nomeproduto);
             System.out.println("Valor: R$ " + produto.valorproduto);
             System.out.println("Estoque: " + produto.estoque);
             System.out.println("-------------------------");
-        }
+        });
     }
     // Método para atualizar um produto
     public void atualizarProduto(){
