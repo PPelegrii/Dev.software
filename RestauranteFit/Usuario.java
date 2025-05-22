@@ -1,6 +1,6 @@
 /*Documentação
  * 
- * Esse arquivo é competente a classe Usuario, assim como seus métodos declarados no documento do projeto .
+ * Esse arquivo é competente a classe Usuario, assim como seus métodos declarados no documento do projeto . 
  * Versão inicial por PedroH no dia 13/03/25. 
  * 
  * Referências:
@@ -8,7 +8,7 @@
  * https://docs.oracle.com/javase/tutorial/index.html
  * https://www.geeksforgeeks.org/java/
  */
-package RestauranteFit; // Temporario afim de testes
+package RestauranteFit; // Temporário afim de testes
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -18,14 +18,31 @@ public class Usuario extends Pessoa {
     public String observacoes;
     public Endereco endereco; // Agregação. Endereço não precisa de usuario para funcionar
 
-    public Usuario(){ // Construtor
-        scn = new Scanner(System.in); // inicia o scan
+    // Atributo estático para a instância única
+    // padrão singleton
+    private static Usuario instanciaUnica;
+
+    // Construtor privado para evitar instâncias externas 
+    // padrão singleton
+    private Usuario() {
+        scn = new Scanner(System.in); // inicia o scanner
     }
+
+    // Método público estático para obter a instância única
+    // padrão singleton
+    public static Usuario getInstance() {
+        if (instanciaUnica == null) {
+            instanciaUnica = new Usuario(); // Cria uma nova instância caso não exista
+        }
+        return instanciaUnica;
+    }
+
     public String gerarID(){ // Método para gerar um ID
-        this.id = "ID-"+ UUID.randomUUID().toString(); // cria um ID aleatório e armazena em this.id
+        this.id = "ID-" + UUID.randomUUID().toString(); // cria um ID aleatório e armazena em this.id
         System.out.println("ID gerado: " + this.id);
         return this.id;
     }
+
     public String pegarID() { // Método para acessar o ID
         return this.id; // usado em outras classes para pegar o ID do usuário
     }
@@ -49,10 +66,10 @@ public class Usuario extends Pessoa {
         System.out.println("Nome: "+ nome + "\nE-mail: "+ email);
 
         if (this.id == null) { // Garante que o ID não seja gerado mais de uma vez
-        this.id = gerarID();  // gera o ID do usuario para ser usado em outras classes | referencia linha 33
+            this.id = gerarID();  // gera o ID do usuário para ser usado em outras classes
         } 
-
     }
+
     public void atualizarCadastro(){
         System.out.println("Atualização de cadastro:" + "\nInforme seu nome: ");
         String nomeNovo = scn.nextLine();
@@ -78,7 +95,7 @@ public class Usuario extends Pessoa {
         scn.close();
     }
 
-    // isso é polimorfismo. Método exibirInformacoes da classe Exibir foi sobrescrita
+    // Método sobrescrito para exibir as informações do usuário
     @Override
     public void exibirInformacoes(){
         System.out.println("Usuário: " + nome);
@@ -86,6 +103,5 @@ public class Usuario extends Pessoa {
         if (endereco != null) {
             System.out.println("Endereço: " + endereco.rua + ", " + endereco.numero + " - " + endereco.bairro + ", " + endereco.cidade + " - " + endereco.estado);
         }
-        
     }
 }
