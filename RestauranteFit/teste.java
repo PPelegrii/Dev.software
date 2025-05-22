@@ -20,6 +20,6 @@ package RestauranteFit;
          pagamento.realizarPagamento();
  
          pagamento.exibirDetalhesPagamento();
-         
+         usuario.endereco.listarEnderecos();
      }
  }
