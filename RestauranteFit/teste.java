@@ -17,8 +17,9 @@ package RestauranteFit;
          produto.verificarEstoque(); // :]
          Pedido pedido = new Pedido(usuario);
          pedido.fazerPedido();
- 
-         Pagamento pagamento = new Pagamento(pedido);
+        
+         // padrão proxy
+         PagamentoProxy pagamento = new PagamentoProxy(pedido);
          pagamento.realizarPagamento();
  
          pagamento.exibirDetalhesPagamento();
