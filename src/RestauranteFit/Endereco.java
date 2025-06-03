@@ -1,6 +1,7 @@
 package RestauranteFit;
-import java.util.Scanner;
+
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Endereco {
@@ -10,24 +11,22 @@ public class Endereco {
     public String cidade;
     public String estado;
 
-    // Coleção HashSet para armazenar endereços únicos
     public static Set<Endereco> setEnderecos = new HashSet<>();
 
-    public Endereco(){
-        Scanner scn = new Scanner(System.in);
+    public Endereco() {
+        Scanner scn = new Scanner(System.in); 
         System.out.println("\n\nENDEREÇO");
 
         try {
             System.out.print("Informe a rua: ");
             this.rua = scn.nextLine();
 
-            // Laço para garantir que o número seja um inteiro válido
             while (true) {
                 System.out.print("Informe o número: ");
                 String numeroTexto = scn.nextLine();
                 try {
                     this.numero = Integer.parseInt(numeroTexto);
-                    break; // sai do loop se deu certo
+                    break; 
                 } catch (NumberFormatException ex) {
                     System.out.println("Entrada inválida! Digite apenas números inteiros.");
                 }
@@ -42,16 +41,14 @@ public class Endereco {
             System.out.print("Informe o estado: ");
             this.estado = scn.nextLine();
 
-            // Adiciona o novo endereço ao HashSet
-            setEnderecos.add(this);
+            setEnderecos.add(this); 
 
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar endereço. Detalhes: " + e.getClass().getSimpleName() + " - " + e.getMessage());
         }
     }
 
-    // Método para listar todos os endereços cadastrados
-    public void listarEnderecos() {
+    public static void listarEnderecosCadastrados() { 
         if (setEnderecos.isEmpty()) {
             System.out.println("Nenhum endereço cadastrado.");
         } else {
@@ -61,5 +58,22 @@ public class Endereco {
                                    ", Cidade: " + endereco.cidade + ", Estado: " + endereco.estado);
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Endereco endereco = (Endereco) o;
+        return numero == endereco.numero &&
+               java.util.Objects.equals(rua, endereco.rua) &&
+               java.util.Objects.equals(bairro, endereco.bairro) &&
+               java.util.Objects.equals(cidade, endereco.cidade) &&
+               java.util.Objects.equals(estado, endereco.estado);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(rua, numero, bairro, cidade, estado);
     }
 }
