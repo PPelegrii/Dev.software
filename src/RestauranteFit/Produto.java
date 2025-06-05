@@ -40,11 +40,11 @@ public class Produto implements Serializable {
         }
 
         ArrayList<Produto> produtosPadrao = new ArrayList<>();
-        produtosPadrao.add(new Produto("PROD-1", "Pizza", 25.90, 10));
-        produtosPadrao.add(new Produto("PROD-2", "Coxinha", 7.50, 15));
-        produtosPadrao.add(new Produto("PROD-3", "Pastel", 10.00, 18));
-        produtosPadrao.add(new Produto("PROD-4", "Espaguete", 23.90, 12));
-        produtosPadrao.add(new Produto("PROD-5", "Coca", 6.00, 20));
+        produtosPadrao.add(new Produto("PROD-1", "Salada de Frutas", 7.00, 10));
+        produtosPadrao.add(new Produto("PROD-2", "Iogurte", 9.50, 15));
+        produtosPadrao.add(new Produto("PROD-3", "Salmão Assado", 25.00, 18));
+        produtosPadrao.add(new Produto("PROD-4", "Sopa de Legumes", 16.90, 12));
+        produtosPadrao.add(new Produto("PROD-5", "Água Mineral", 4.00, 20));
         salvarProdutosNoArquivo(produtosPadrao);
         return produtosPadrao;
     }
