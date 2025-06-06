@@ -51,7 +51,7 @@ public class Produto implements Serializable {
 
     public static void salvarProdutosNoArquivo(ArrayList<Produto> produtos) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            out.writeObject(produtos);
+            out.writeObject(produtos);  
         } catch (IOException e) {
             System.err.println("Erro ao salvar os produtos: " + e.getMessage());
         }
